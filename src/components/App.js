@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../style/App.css";
 
-import { add_Reminder, remove_Reminder } from "../actions";
+import { add_Reminder, remove_Reminder, clear_Reminder } from "../actions";
 
 class App extends Component {
   state = {
@@ -41,24 +41,32 @@ class App extends Component {
         <input
           className="form-control"
           type="text"
+          value={this.state.text}
           placeholder="Enter What U Think"
           onChange={(e) => this.setState({ text: e.target.value })}
         />
         <input
           className="form-control"
           type="datetime-local"
+          value={this.state.date}
           onChange={(e) => this.setState({ date: e.target.value })}
         />
         <button
-          onClick={() =>
-            this.props.add_Reminder(this.state.text, this.state.date)
-          }
+          onClick={() => {
+            this.props.add_Reminder(this.state.text, this.state.date);
+            this.setState({ text: "", date: "" });
+          }}
           className="btn btn-primary btn-block"
         >
           ADD Reminder
         </button>
         <div>{this.render_Reminders()}</div>
-        <button className="btn btn-danger btn-block">Clear Reminder</button>
+        <button
+          className="btn btn-danger btn-block"
+          onClick={() => this.props.clear_Reminder()}
+        >
+          Clear Reminder
+        </button>
       </div>
     );
   }
@@ -74,4 +82,8 @@ function mapStateToProps(state) {
     Add_Reminder: () => dispatch(add_Reminder()),
   };
 }*/
-export default connect(mapStateToProps, { add_Reminder, remove_Reminder })(App);
+export default connect(mapStateToProps, {
+  add_Reminder,
+  remove_Reminder,
+  clear_Reminder,
+})(App);
