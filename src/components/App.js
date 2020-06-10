@@ -17,11 +17,13 @@ class App extends Component {
       <ul>
         {reminders.map((reminder) => {
           return (
-            <li key={reminder.id} className="group-item">
-              <div>{reminder.text}</div>
-              <div>{moment(new Date(reminder.date)).fromNow()}</div>
+            <li key={reminder.id} className="group-item list">
+              <div className="reminder-text">{reminder.text}</div>
+              <div className="reminder-date">
+                {moment(new Date(reminder.date)).fromNow()}
+              </div>
               <div
-                className="remove btn btn-danger"
+                className="btn btn-danger closeIcon"
                 onClick={() => this.props.remove_Reminder(reminder.id)}
               >
                 X
@@ -37,7 +39,7 @@ class App extends Component {
     console.log("The props", this.props);
     return (
       <div className="App">
-        <div className="app-title">
+        <div className="reminder-title">
           <h2>What Should You Do ?</h2>
         </div>
         <input
@@ -71,7 +73,7 @@ class App extends Component {
         </button>
         <div>{this.render_Reminders()}</div>
         <button
-          className="btn btn-danger btn-block"
+          className="btn btn-danger btn-block clearReminder"
           onClick={() => this.props.clear_Reminder()}
         >
           Clear Reminder
