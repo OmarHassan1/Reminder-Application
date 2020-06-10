@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../style/App.css";
+import logo from "../img/note1.jpg";
 import moment from "moment";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -39,6 +40,7 @@ class App extends Component {
     console.log("The props", this.props);
     return (
       <div className="App">
+        <img src={logo} alt="noteBook" />
         <div className="reminder-title">
           <h2>What Should You Do ?</h2>
         </div>

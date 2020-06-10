@@ -12,7 +12,8 @@ body {
 .App img {
   width: 27%;
   display: block;
-  margin: auto;
+  margin: 20px auto;
+  border-radius: 20px;
 }
 .closeIcon {
   background: #dc3545;
