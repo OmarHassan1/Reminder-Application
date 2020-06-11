@@ -1,5 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   background: #831111;
+}
+ul {
+  padding: 0;
 }
 .App {
   width: 50%;
@@ -26,6 +33,11 @@ body {
   color: #fff;
   list-style: none;
 }
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  display: block;
+}
+
 .reminder-title {
   font-weight: bold;
   color: #fff;
@@ -35,7 +47,10 @@ body {
 }
 .list {
   list-style: none;
-  margin: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .reminder-date,
 .reminder-text {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "../style/App.css";
 import logo from "../img/note1.jpg";
 import moment from "moment";
 import DatePicker from "react-datepicker";
